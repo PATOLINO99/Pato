@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnLogin) {
         btnLogin.addEventListener('click', () => {
-            if (passInput.value === '1210') {
+            if (passInput.value === 'Sant@1210') {
                 isAdminAuthenticated = true;
                 loginView.style.display = 'none';
                 contentView.style.display = 'block';
