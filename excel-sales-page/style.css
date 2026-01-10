@@ -598,20 +598,46 @@ body {
 
 /* --- LOGIN VIEW --- */
 .login-wrapper {
-    height: 80vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #a5d6a7 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
-.login-box {
-    background: white;
-    width: 100%;
-    max-width: 400px;
-    padding: 3rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    text-align: center;
+.login-box.sa-style {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 3.5rem;
+    box-shadow: 0 20px 40px rgba(0, 77, 64, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.sa-input {
+    background: #f0f4f2 !important;
+    border-radius: 12px !important;
+    border: 1px solid transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+.sa-input:focus-within {
+    border-color: #4caf50 !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+}
+
+.btn-orion.full.active {
+    background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+    border-radius: 12px;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
 }
 
 .login-logo {
