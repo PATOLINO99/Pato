@@ -1,0 +1,31 @@
+# Netlify Configuration File
+# Configuração para deploy do site Excel Sales Page
+
+[build]
+  # Diretório que contém os arquivos do site
+  publish = "."
+  
+  # Como é um site estático HTML/CSS/JS, não precisa de build
+  command = "echo 'No build needed - Static site'"
+
+# Configurações de redirecionamento removidas para evitar conflitos com assets estáticos
+
+# Headers de segurança (opcional mas recomendado)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache para assets estáticos
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
