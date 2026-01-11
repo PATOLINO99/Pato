@@ -4,44 +4,521 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Em Breve | ExcelPro</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: #0f0f13;
-            color: white;
-            font-family: sans-serif;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #107c41, #33d17a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p {
-            color: #888;
-            font-size: 1.2rem;
-        }
-    </style>
+    <title>ExcelPro | A Plataforma Oficial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="build-version" content="1.0.1">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Em Manutenção</h1>
-        <p>Estamos atualizando nossa plataforma.<br>Voltaremos em breve com novidades.</p>
+
+    <div class="app-background"></div>
+
+    <!-- Top Bar / Navbar -->
+    <nav class="orion-nav">
+        <div class="container nav-content">
+            <div class="menu-icon"><i class="fas fa-bars"></i></div>
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-file-excel"></i></div>
+                <span>Excel<strong>Pro</strong></span>
+            </div>
+            <!-- Removed Login Button from Right Side as requested -->
+        </div>
+
+        <!-- Mobile/Landing Menu Dropdown -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#" onclick="navigateTo('login'); toggleMenu()">
+                <i class="fas fa-user-circle"></i> Login
+            </a>
+        </div>
+    </nav>
+
+    <div id="app" class="main-container">
+
+        <!-- VIEW: LANDING (Orion Style) -->
+        <div id="view-landing" class="view active">
+
+            <!-- "Official Seller" Header Style -->
+            <div class="official-box">
+                <div class="stripe"></div>
+                <h3>PLATAFORMA OFICIAL DE ENSINO</h3>
+                <div class="cert-logos">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Power_bi_logo_black.svg/2560px-Power_bi_logo_black.svg.png"
+                        alt="PowerBI" style="height: 25px;">
+                    <div class="badge-secure"><i class="fas fa-shield-alt"></i> Compra Segura</div>
+                </div>
+            </div>
+
+            <!-- Main Banners -->
+            <div class="banner-grid">
+                <!-- Hero Banner -->
+                <div class="banner-hero">
+                    <div class="banner-content">
+                        <h2>DOMINE O EXCEL<br>DO <span class="highlight">ZERO AO PRO</span></h2>
+                        <p>A única plataforma com certificação reconhecida e suporte 24h.</p>
+                        <button class="btn-orion btn-glow" onclick="navigateTo('login')">COMEÇAR AGORA</button>
+                    </div>
+                </div>
+
+                <!-- Secondary Banner -->
+                <div class="banner-secondary">
+                    <h3>Entrega <span class="orange">IMEDIATA</span></h3>
+                    <p>Acesso liberado automaticamente após a compra.</p>
+                    <div class="lock-icon"><i class="fas fa-unlock-alt"></i></div>
+                </div>
+            </div>
+
+            <!-- Products / Courses Grid -->
+            <section class="products-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-book-open"></i> NOSSOS CURSOS</h3>
+                    <div class="line"></div>
+                </div>
+
+                <div class="grid-products">
+                    <!-- Excel Basic -->
+                    <div class="product-card">
+                        <div class="card-badge">MAIS VENDIDO</div>
+                        <div class="product-img basic">
+                            <i class="fas fa-table"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4>Excel Profissional</h4>
+                            <p class="desc">Do básico até tabelas dinâmicas e dashboards.</p>
+                            <div class="price-box">
+                                <span class="old">R$ 297</span>
+                                <span class="new">R$ 97,00</span>
+                            </div>
+                            <button class="btn-buy" data-product="excel">COMPRAR AGORA</button>
+                        </div>
+                    </div>
+
+                    <!-- Power BI -->
+                    <div class="product-card">
+                        <div class="card-badge new">NOVIDADE</div>
+                        <div class="product-img powerbi">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4>Power BI Master</h4>
+                            <p class="desc">Crie dashboards interativos e análise de dados.</p>
+                            <div class="price-box">
+                                <span class="old">R$ 497</span>
+                                <span class="new">R$ 147,00</span>
+                            </div>
+                            <button class="btn-buy" data-product="powerbi">COMPRAR AGORA</button>
+                        </div>
+                    </div>
+
+                    <!-- VBA -->
+                    <div class="product-card">
+                        <div class="product-img vba">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4>Automação VBA</h4>
+                            <p class="desc">Automatize tarefas repetitivas com macros.</p>
+                            <div class="price-box">
+                                <span class="old">R$ 397</span>
+                                <span class="new">R$ 127,00</span>
+                            </div>
+                            <button class="btn-buy" data-product="vba">COMPRAR AGORA</button>
+                        </div>
+                    </div>
+
+                    <!-- Combo -->
+                    <div class="product-card featured-product">
+                        <div class="card-badge gold">PREMIUM</div>
+                        <div class="product-img combo">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="product-info">
+                            <h4>Acesso Total (Vitalício)</h4>
+                            <p class="desc">Todos os cursos + atualizações futuras garantidas.</p>
+                            <div class="price-box">
+                                <span class="old">R$ 997</span>
+                                <span class="new">R$ 297,00</span>
+                            </div>
+                            <button class="btn-buy gold" data-product="combo">GARANTIR ACESSO</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Floating Purchase Notification (Orion Style) -->
+            <div class="notification-toast" id="toast">
+                <div class="toast-icon"><i class="fas fa-shopping-cart"></i></div>
+                <div class="toast-content">
+                    <p><strong>Ricardo S.</strong> adquiriu</p>
+                    <p class="blue">Acesso Total (Vitalício)</p>
+                    <span class="time">Há 2 minutos</span>
+                </div>
+                <button class="close-toast"
+                    onclick="document.getElementById('toast').style.display='none'">&times;</button>
+            </div>
+
+            <!-- Floating FAB -->
+            <button class="fab-settings"><i class="fas fa-palette"></i></button>
+
+        </div> <!-- End View Landing -->
+
+
+        <!-- VIEW: LOGIN (Orion Login Style) -->
+
+        <div id="view-login" class="view">
+            <div class="login-wrapper">
+                <div class="login-box sa-style">
+                    <div class="login-logo">
+                        Excel<strong>Pro</strong>
+                    </div>
+                    <h3>Acesso ao painel</h3>
+                    <p>Entre para continuar</p>
+
+                    <form id="login-form">
+                        <div class="orion-input sa-input">
+                            <i class="fas fa-desktop"></i>
+                            <input type="text" placeholder="Painel de controle" value="aluno@excelpro.com">
+                        </div>
+                        <div class="orion-input sa-input">
+                            <i class="fas fa-key"></i>
+                            <input type="text" placeholder="Senha" value="1210">
+                        </div>
+                        <button type="submit" class="btn-orion full active">ACESSAR</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- VIEW: DASHBOARD (Adapted to new Style) -->
+        <div id="view-dashboard" class="view">
+            <div class="dash-layout">
+                <!-- Sidebar -->
+                <aside class="dash-sidebar">
+                    <nav style="padding-top: 20px;">
+                        <a href="#" class="dash-link active" data-target="dash-settings"
+                            style="color: #546e7a; font-weight: 600;">
+                            <i class="fas fa-cog"></i> Configurações
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Content -->
+                <main class="dash-content">
+
+
+                    <!-- CENTRALIZED SETTINGS VIEW (The Only View) -->
+                    <div id="dash-settings" class="dash-subview active">
+
+                        <!-- STATE 1: LOGIN (Gatekeeper) -->
+                        <div id="settings-login-view" style="max-width: 400px; margin: 4rem auto; text-align: center;">
+                            <div
+                                style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #eee;">
+                                <div style="font-size: 3rem; color: #546e7a; margin-bottom: 1rem;"><i
+                                        class="fas fa-lock"></i></div>
+                                <h3 style="margin-bottom: 1.5rem; color: var(--text-main);">Painel
+                                    Centralizado</h3>
+
+
+                                <div class="control-group" style="text-align: left;">
+                                    <label>Senha de Acesso</label>
+                                    <input type="password" id="admin-pass-input" placeholder="Senha..."
+                                        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                                    <p id="admin-error-msg"
+                                        style="color: red; font-size: 0.8rem; display: none; margin-top: 5px;">
+                                        Senha incorreta.</p>
+                                </div>
+
+                                <button class="btn-orion full" id="btn-admin-login" style="margin-top: 1rem;">ACESSAR
+                                    PAINEL</button>
+                            </div>
+                        </div>
+
+                        <!-- STATE 2: CENTRAL HUB (Internal Tabs) -->
+                        <div id="settings-content-view" style="display: none;">
+
+                            <!-- Internal Navigation Tabs -->
+                            <div class="hub-tabs">
+                                <button class="hub-tab active" data-tab="tab-overview"><i class="fas fa-chart-pie"></i>
+                                    Geral</button>
+                                <button class="hub-tab" data-tab="tab-content"><i class="fas fa-book"></i>
+                                    Cursos</button>
+                                <button class="hub-tab" data-tab="tab-visual"><i class="fas fa-palette"></i>
+                                    Visual</button>
+                                <button class="hub-tab" data-tab="tab-sales"><i class="fas fa-dollar-sign"></i>
+                                    Vendas</button>
+                            </div>
+
+                            <!-- TAB 1: OVERVIEW (Metrics) -->
+                            <div id="tab-overview" class="hub-pane active">
+                                <div class="dash-banner">
+                                    <h2>Bem-vindo ao Controle! 👋</h2>
+                                    <p>Visão geral do sistema e progresso simulado.</p>
+                                </div>
+                                <div class="dash-grid">
+                                    <div class="dash-stat-card">
+                                        <div class="stat-icon purple-bg"><i class="fas fa-clock"></i></div>
+                                        <h3 class="stat-value">48h</h3>
+                                        <p class="stat-label">Simuladas</p>
+                                    </div>
+                                    <div class="dash-stat-card">
+                                        <div class="stat-icon green-bg"><i class="fas fa-check"></i></div>
+                                        <h3 class="stat-value">85%</h3>
+                                        <p class="stat-label">Conclusão</p>
+                                    </div>
+                                    <div class="dash-stat-card">
+                                        <div class="stat-icon blue-bg"><i class="fas fa-trophy"></i></div>
+                                        <h3 class="stat-value">2</h3>
+                                        <p class="stat-label">Certificados</p>
+                                    </div>
+                                </div>
+                                <div class="chart-section"
+                                    style="margin-top: 2rem; background: white; padding: 1.5rem; border-radius: 12px; border: 1px solid #eee;">
+                                    <h4>Fluxo de Vendas/Estudos (Simulado)</h4>
+                                    <canvas id="studyChart" style="width: 100%; height: 300px;"></canvas>
+                                </div>
+                            </div>
+
+                            <!-- TAB 2: COURSES & CONTENT -->
+                            <div id="tab-content" class="hub-pane">
+                                <h3>Gerenciamento de Conteúdo</h3>
+                                <div class="editor-card">
+                                    <h4>Meus Cursos (Aluno)</h4>
+                                    <div style="padding:10px; border-bottom:1px solid #eee;">
+                                        <strong>Excel Profissional</strong> - <span style="color:green">Ativo</span>
+                                    </div>
+                                    <div style="padding:10px; border-bottom:1px solid #eee;">
+                                        <strong>Power BI Master</strong> - <span style="color:green">Ativo</span>
+                                    </div>
+                                    <div style="padding:10px;">
+                                        <strong>VBA Automação</strong> - <span style="color:orange">Pendente</span>
+                                    </div>
+                                </div>
+                                <div class="editor-card">
+                                    <h4>Certificados Emitidos</h4>
+                                    <p style="color:#666;">Nenhum certificado novo para emitir no momento.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- TAB 3: VISUAL CUSTOMIZER (Old Editor) -->
+                            <div id="tab-visual" class="hub-pane">
+                                <div class="editor-header">
+                                    <h3>Personalização Visual</h3>
+                                    <p>Cores, visibilidade e notificações em tempo real.</p>
+                                </div>
+                                <div class="editor-grid">
+                                    <div class="editor-card">
+                                        <h4>🎨 Cores do Tema</h4>
+                                        <div class="control-group"><label>Cor Principal</label>
+                                            <div class="color-wrapper"><input type="color" id="picker-primary"
+                                                    value="#107C41"></div>
+                                        </div>
+                                        <div class="control-group"><label>Cor de Destaque</label>
+                                            <div class="color-wrapper"><input type="color" id="picker-accent"
+                                                    value="#FFD700"></div>
+                                        </div>
+                                        <div class="control-group"><label>Fundo da Página</label>
+                                            <div class="color-wrapper"><input type="color" id="picker-bg"
+                                                    value="#f4f4f4"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- NOTIFICATION MANAGER (Integrated) -->
+                                    <div class="editor-card manager-card" style="grid-column: 1/-1;">
+                                        <div class="manager-grid">
+                                            <div class="manager-col">
+                                                <h4 class="sub-title"><i class="fas fa-bell"></i>
+                                                    Notificações de Venda</h4>
+                                                <div class="toggle-group"><input type="checkbox" id="toggle-toast"
+                                                        checked><label>Ativar
+                                                        Notificações</label></div>
+                                                <div class="control-group"><label>Nome do
+                                                        Comprador</label><input type="text" id="input-toast-name"
+                                                        value="Ricardo S."></div>
+                                                <div class="control-group"><label>Produto
+                                                        Vendido</label><input type="text" id="input-toast-product"
+                                                        value="Acesso Total"></div>
+                                                <div class="control-group"><label>Tempo
+                                                        Decorrido</label><input type="text" id="input-toast-time"
+                                                        value="Há 2 minutos"></div>
+                                                <div class="sub-controls">
+                                                    <div class="control-group"><label>Cor
+                                                            Ícone</label><input type="color" id="picker-toast-icon-bg"
+                                                            value="#e3f2fd"></div>
+                                                    <div class="control-group"><label>Cor Texto
+                                                            Ícone</label><input type="color"
+                                                            id="picker-toast-icon-color" value="#1565c0">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="manager-col">
+                                                <h4 class="sub-title">Pré-visualização</h4>
+                                                <div class="notification-toast-preview" id="toast-preview">
+                                                    <div class="toast-icon" id="preview-icon"><i
+                                                            class="fas fa-shopping-cart"></i></div>
+                                                    <div class="toast-content">
+                                                        <p><strong id="preview-name">Ricardo S.</strong>
+                                                            adquiriu</p>
+                                                        <p class="blue" id="preview-product">Acesso Total
+                                                            (Vitalício)</p>
+                                                        <span class="time" id="preview-time">Há 2
+                                                            minutos</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Rotation -->
+                                        <div class="rotation-settings"
+                                            style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid #eee;">
+                                            <h4 class="sub-title"><i class="fas fa-sync-alt"></i> Rotação
+                                                Automática</h4>
+                                            <div style="display:flex; gap:2rem; margin-bottom:1rem;">
+                                                <div class="toggle-group"><input type="checkbox"
+                                                        id="toggle-rotation"><label>Ativar Rotação</label>
+                                                </div>
+                                                <div class="control-group"><label>Segundos:</label><input type="number"
+                                                        id="input-rotation-time" value="30" style="width:60px;"></div>
+                                            </div>
+                                            <div class="control-group"><label>Pool de Anúncios</label>
+                                                <div class="active-ads-list" id="active-ads-list"
+                                                    style="display:grid; gap:8px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="editor-card">
+                                        <h4>👁️ Visibilidade</h4>
+                                        <div class="toggle-group"><input type="checkbox" id="toggle-hero"
+                                                checked><label>Banner Hero</label></div>
+                                        <div class="toggle-group"><input type="checkbox" id="toggle-products"
+                                                checked><label>Seção Cursos</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TAB 4: SALES PAGE COPY (Old Admin Settings) -->
+                            <div id="tab-sales" class="hub-pane">
+                                <div class="editor-header">
+                                    <h3>Copywriting e Ofertas</h3>
+                                    <p>Edite os textos persuasivos e preços da página.</p>
+                                </div>
+                                <div class="editor-grid">
+                                    <div class="editor-card">
+                                        <h4>Identidade</h4>
+                                        <div class="control-group"><label>Nome Plataforma</label><input type="text"
+                                                id="conf-platform-name" value="ExcelPro"></div>
+                                        <div class="control-group"><label>Subtítulo</label><input type="text"
+                                                id="conf-header-sub" value="PLATAFORMA OFICIAL DE ENSINO"></div>
+                                    </div>
+                                    <div class="editor-card">
+                                        <h4>Hero Section</h4>
+                                        <div class="control-group"><label>Título</label><input type="text"
+                                                id="conf-hero-title" value="DOMINE O EXCEL DO ZERO AO PRO">
+                                        </div>
+                                        <div class="control-group"><label>Descrição</label><textarea id="conf-hero-desc"
+                                                rows="2">A única plataforma com certificação reconhecida e suporte 24h.</textarea>
+                                        </div>
+                                        <div class="control-group"><label>Botão CTA</label><input type="text"
+                                                id="conf-hero-btn" value="COMEÇAR AGORA"></div>
+                                    </div>
+                                    <div class="editor-card" style="grid-column: 1/-1;">
+                                        <h4>Preços e Ofertas</h4>
+                                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                            <div>
+                                                <h5>Excel Profissional</h5>
+                                                <input type="text" id="conf-c1-price-old" value="R$ 297"
+                                                    style="margin-bottom:5px;">
+                                                <input type="text" id="conf-c1-price-new" value="R$ 97,00">
+                                            </div>
+                                            <div>
+                                                <h5>Combo Vitalício</h5>
+                                                <input type="text" id="conf-c4-price-old" value="R$ 997"
+                                                    style="margin-bottom:5px;">
+                                                <input type="text" id="conf-c4-price-new" value="R$ 297,00">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Kiwify Checkout Links Card -->
+                                    <div class="editor-card" style="grid-column: 1/-1;">
+                                        <h4>🔗 Links de Checkout (Kiwify)</h4>
+                                        <p style="color: #666; font-size: 0.85rem; margin-bottom: 1rem;">
+                                            Configure os links de checkout da Kiwify para cada produto. Ao clicar em
+                                            "Comprar", o usuário será redirecionado automaticamente.
+                                        </p>
+                                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                            <div class="control-group">
+                                                <label>📊 Excel Profissional</label>
+                                                <input type="url" id="conf-kiwify-excel"
+                                                    value="https://pay.kiwify.com.br/KDTLmJB"
+                                                    placeholder="https://pay.kiwify.com.br/...">
+                                            </div>
+                                            <div class="control-group">
+                                                <label>📈 Power BI Master</label>
+                                                <input type="url" id="conf-kiwify-powerbi"
+                                                    value="https://pay.kiwify.com.br/KDTLmJB"
+                                                    placeholder="https://pay.kiwify.com.br/...">
+                                            </div>
+                                            <div class="control-group">
+                                                <label>💻 Automação VBA</label>
+                                                <input type="url" id="conf-kiwify-vba"
+                                                    value="https://pay.kiwify.com.br/KDTLmJB"
+                                                    placeholder="https://pay.kiwify.com.br/...">
+                                            </div>
+                                            <div class="control-group">
+                                                <label>🎁 Combo Vitalício</label>
+                                                <input type="url" id="conf-kiwify-combo"
+                                                    value="https://pay.kiwify.com.br/KDTLmJB"
+                                                    placeholder="https://pay.kiwify.com.br/...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- GLOBAL SAVE BAR -->
+                            <div class="save-bar-container">
+                                <div class="unsaved-indicator hidden" id="unsaved-badge">
+                                    <i class="fas fa-circle"></i> Alterações pendentes
+                                </div>
+                                <button class="btn-save" id="btn-save-changes" type="button">
+                                    <i class="fas fa-save"></i> Salvar Tudo
+                                </button>
+                            </div>
+
+                        </div> <!-- End Content View -->
+                    </div> <!-- End Dash Settings -->
+
+                </main>
+
+
+            </div>
+        </div>
+
     </div>
+
+    <!-- Custom Modal Overlay -->
+    <div class="custom-modal-overlay" id="customModalOverlay">
+        <div class="custom-modal">
+            <div class="modal-icon" id="modalIcon">
+                <i class="fas fa-question-circle"></i>
+            </div>
+            <h3 id="modalTitle">Confirmação</h3>
+            <p id="modalMessage">Mensagem do modal</p>
+            <div class="modal-actions" id="modalActions">
+                <button class="modal-btn modal-btn-secondary" id="modalCancelBtn">Cancelar</button>
+                <button class="modal-btn modal-btn-primary" id="modalConfirmBtn">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
